@@ -1,6 +1,8 @@
 # Sistemas de Informação DECSI - UFOP
 ## CSI105 Algoritmos e Estruturas de Dados III 2021/2
 
+###Ainda editando detalhes finais para gravar e submeter o vídeo
+
 Professor: Dr. George Henrique Godim da Fonseca
 
 Aluna: [Juliana Mara Lemos](https://github.com/julianamlemos)
@@ -33,6 +35,9 @@ destino = int(input("Informe o vértice de destino: "))
 Abaixo um exemplo da resposta que deve ser retornada como saída após a execução do programa:
 
 ![Exemplo de saída do programa após a execução do mesmo](https://github.com/julianamlemos/AEDS_3/blob/main/Print%20ex_execu%C3%A7%C3%A3o.PNG)
+
+### Implementação e resultados observados para um conjunto de grafos de teste - Video
+[Apresentação](link)
 
 ### Fontes
 - Notas de Aula - CSI105 Algoritmos e Estruturas de Dados III 2021/2
