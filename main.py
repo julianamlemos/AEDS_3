@@ -6,7 +6,7 @@ arquivo = input("Informe o nome do arquivo e sua extensão (Ex: nome.txt): ")
 origem = int(input("Informe o vértice de origem: "))
 destino = int(input("Informe o vértice de destino: "))
 start = time.process_time()
-print("\nProcessando...")
+print("Processando...")
 
 grafo.caminhoMinimo(arquivo, origem, destino)
 end = time.process_time()
