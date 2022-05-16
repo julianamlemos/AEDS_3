@@ -31,16 +31,7 @@ destino = int(input("Informe o vértice de destino: "))
 ```
 
 Abaixo um exemplo da resposta que deve ser retornada como saída após a execução do programa:
-```json
-{
-  "Arquivo de origem": "toy.txt",
-  "Origem": 0,
-  "Destino": 3,
-  "Caminho": [0, 2, 1, 4],
-  "Custo": 5,
-  "Tempo": 0.003s
-}
-```
+/assets/images/Print ex_execução.png
 
 
 
