@@ -31,7 +31,9 @@ destino = int(input("Informe o vértice de destino: "))
 ```
 
 Abaixo um exemplo da resposta que deve ser retornada como saída após a execução do programa:
-/assets/images/Print ex_execução.png
+
+![Exemplo de saída do programa após a execução do mesmo](/assets/images/Print ex_execução.png)
+
 
 
 
