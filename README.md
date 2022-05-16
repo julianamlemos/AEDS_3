@@ -2,6 +2,7 @@
 ## CSI105 Algoritmos e Estruturas de Dados III 2021/2
 
 Professor: Dr. George Henrique Godim da Fonseca
+
 Aluna: [Juliana Mara Lemos](https://github.com/julianamlemos)
 
 ### Descrição
