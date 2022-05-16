@@ -1,9 +1,8 @@
 # Sistemas de Informação DECSI - UFOP
-
 ## CSI105 Algoritmos e Estruturas de Dados III 2021/2
-Professor: Dr. George Henrique Godim da Fonseca
 
-### Aluna: [Juliana Mara Lemos](https://github.com/julianamlemos)
+Professor: Dr. George Henrique Godim da Fonseca
+Aluna: [Juliana Mara Lemos](https://github.com/julianamlemos)
 
 ### Descrição
 O trabalho consiste em implementar algoritmos para resolver problemas de caminho mínimo em grafos.
