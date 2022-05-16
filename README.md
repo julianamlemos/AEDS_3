@@ -34,7 +34,12 @@ Abaixo um exemplo da resposta que deve ser retornada como saída após a execuç
 
 ![Exemplo de saída do programa após a execução do mesmo](https://github.com/julianamlemos/AEDS_3/blob/main/Print%20ex_execu%C3%A7%C3%A3o.PNG)
 
-
+### Fontes
+- Notas de Aula - CSI105 Algoritmos e Estruturas de Dados III 2021/2
+- [Canal Professor: Dr. George Henrique Godim da Fonseca ](https://www.youtube.com/playlist?list=PLsfh2zkrGs9lf7im2y6ZDlbIrspKBdVD3)
+- [Canal Programação descomplicada - Prof. Dr André Backes](https://www.youtube.com/playlist?list=PL8iN9FQ7_jt5TITT-3c4L6xNSmQMx1T4e)
+- [Hora de Codar](https://www.horadecodar.com.br/category/python/)
+- [Algoritmos em Python](https://algoritmosempython.com.br/cursos/algoritmos-python/intro/)
 
 
 
