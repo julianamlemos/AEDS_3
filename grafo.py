@@ -128,7 +128,7 @@ class Grafo:
         return dist, pred, 'Dijkstra'
 
     def bellmanFord(self, s):
-    #para grafos ponderados com arestas que contenham peso negativo
+    #para grafos ponderados com arestas que contenham peso negativo, implementação melhorada
 
         dist = [float('inf') for _ in range(len(self.lista_adj))]
         pred = [None for _ in range(len(self.lista_adj))]
@@ -143,7 +143,7 @@ class Grafo:
 
         #Laço principal que será executado até o número de vértices -1 vezes
         for i in range(0, len(self.lista_adj) - 1):
-            trocou = False
+            trocou = False #semáforo inicializado como false
             #Examina cada aresta e atualiza caso encontre uma melhor iteração
             for e in arestas:
                 origem = e[0]
@@ -152,9 +152,9 @@ class Grafo:
                 if dist[destino] > dist[origem] + peso:
                     dist[destino] = dist[origem] + peso
                     pred[destino] = origem
-                    trocou = True
+                    trocou = True #Caso haja atualização
 
-            if trocou is False:
+            if trocou is False: #Encerra prematuramente caso o semáforo continue como False
                 break
 
         return dist, pred, 'Bellman Ford'
