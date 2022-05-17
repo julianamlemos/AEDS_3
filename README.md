@@ -36,8 +36,8 @@ Abaixo um exemplo da resposta que deve ser retornada como saída após a execuç
 
 ![Exemplo de saída do programa após a execução do mesmo](https://github.com/julianamlemos/AEDS_3/blob/main/Print%20ex_execu%C3%A7%C3%A3o.PNG)
 
-### Implementação e resultados observados para um conjunto de grafos de teste - Video
-[Apresentação](link)
+### Implementação e resultados observados para um conjunto de grafos de teste - Video:
+[Apresentação](https://drive.google.com/file/d/13eNeE1RaB2rW5SFOqWsO__Xg19VkszLe/view?usp=sharing)
 
 ### Fontes
 - Notas de Aula - CSI105 Algoritmos e Estruturas de Dados III 2021/2
