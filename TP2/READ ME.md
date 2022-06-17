@@ -25,7 +25,7 @@ Ao executar o arquivo main.py, deve-se digitar 1 para iniciar ou 2 para sair da 
 
 Abaixo um exemplo da resposta que deve ser retornada como saída após a execução do programa:
 
-![Exemplo da execução e da saída gerada](https://github.com/julianamlemos/AEDS_3/TP2/blob/main/execu%C3%A7%C3%A3o.mp4)
+[Vídeo de exemplo da execução e da saída gerada](https://drive.google.com/file/d/1FqlqKlwPnv9pxtV2Y9iXs20hZe84cnoP/view?usp=sharing)
 
 ### Implementação e resultados observados para um conjunto de grafos de teste - Video:
 [Apresentação](link)
