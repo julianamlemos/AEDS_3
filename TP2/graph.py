@@ -24,6 +24,10 @@ class Graph:
         self.away_teachers = []
 
     def reset(self, num_vet=0, num_edg=0, mat_adj: list = None, list_adj: list = None) -> None:
+    """:param num_vet: numero de vertices
+        :param num_edg: numero de arestas
+        :param mat_adj: matriz de adjacência
+        :param list_adj: lista de adjacência """
   
         self.num_vet = num_vet
         self.num_edg = num_edg
@@ -45,6 +49,12 @@ class Graph:
         self.away_teachers = []
 
     def addEdge(self, source, sink, capacity=float("inf"), flow=0) -> None: #adicionando aresta
+    """Adição de aresta no grafo
+
+        :param flow: valor do fluxo
+        :param source: vértice de origem
+        :param sink: vértice de destino
+        :param capacity: capacidade da aresta """
 
         if source < self.num_vet and sink < self.num_vet:
             self.mat_adj[source][sink] = [flow, capacity]
@@ -53,7 +63,11 @@ class Graph:
         else:
             sys.exit("Aresta inválida")
 
-    def removeEdge(self, source, sink) -> None: #removendo aresta
+    def removeEdge(self, source, sink) -> None:
+    """Remoção de aresta do grafo
+
+        :param source: vértice de origem
+        :param sink: vértice de destino """
 
         if source < self.num_vet and sink < self.num_vet:
             if self.mat_adj[source][sink] != 0:
@@ -70,6 +84,7 @@ class Graph:
             sys.exit("Aresta inválida")
 
     def setEdgesList(self) -> None:
+    """ Definição da lista de vértices """
 
         for i in range(0, len(self.mat_adj)):
             for j in range(0, len(self.mat_adj[i])):
@@ -79,6 +94,11 @@ class Graph:
 
     @staticmethod
     def cleanSubjects(subjects) -> list:
+    """ Remoção de dados incomuns presentes na lista de disciplinas
+
+        :param subjects: lista de disciplinas com valores Nan a serem removidas
+        :return: nova lista de disciplinas
+        """
 
         new_subjects = []
         for item in subjects:
@@ -88,18 +108,25 @@ class Graph:
 
         return new_subjects
 
-    def readTeachers(self, filename: str) -> tuple: #lendo professores
+    def readTeachers(self, filename: str) -> tuple:
+    """ Leitura do arquivo Professores e retorno do dado formatado
+
+        :param filename: Nome dos professores presentes no arquivo salvo na pasta /base
+        :return: professores e disciplinas ofertadas e disciplina """
 
         try:
             df = pd.read_csv("C:/Users/camar/Downloads/AEDS3/TP2/base/" + filename, sep=";")
 
-            teachers = df.iloc[:, 0].dropna().values.tolist() 
+            teachers = df.iloc[:, 0].dropna().values.tolist()
+            """dropna() usado para remover valores ausentes do DataFrame, deixando cair as linhas ou colunas que contêm os valores nulos"""
 
             subjects_offered = df.iloc[:, 1].values.tolist()
 
-            subjects_offered.pop(-1) 
+            subjects_offered.pop(-1)
+            """pop() é uma função embutida usada para remover e retornar o último valor da lista ou o valor de índice fornecido.""" 
 
-            subjects = df.iloc[:, [2, 3, 4, 5, 6]].values.tolist() 
+            subjects = df.iloc[:, [2, 3, 4, 5, 6]].values.tolist()
+            """iloc é um indexador que, em resumo, seleciona linhas e colunas por números"""
 
             subjects = self.cleanSubjects(subjects)  
 
@@ -109,7 +136,10 @@ class Graph:
             sys.exit("Arquivo não existente na pasta /base")
 
     def readSubjects(self, filename: str) -> tuple: #lendo disciplinas
-    
+    """ Lê o arquivo disciplinas e retorna os dados formatados
+
+        :param filename: Nome das disciplinas presentes no arquivo salvo na pasta /base
+        :return: Disciplina, número de turmas e total de disciplinas """
         try:
             df = pd.read_csv("C:/Users/camar/Downloads/AEDS3/TP2/base/" + filename, sep=";")
 
@@ -127,6 +157,11 @@ class Graph:
             sys.exit("Arquivo não existente na pasta /base")
 
     def setTeachersAndSubjectsIndexes(self, subjects_initial_vertex: int, subjects_info: list, teachers_data: tuple) -> None:
+    """ Define o valor de cada professor e disciplina
+
+        :param teachers_data: tupla com o dado referente a cada professor
+        :param subjects_initial_vertex: Vértice inicial de disciplinas
+        :param subjects_info: lista com informação de cada disciplina """
 
         (teachers, num_of_subject_offered, subjects_offered) = teachers_data
 
@@ -140,6 +175,10 @@ class Graph:
                 break
 
     def setSourceEdges(self, teachers: list, subjects_offered: list) -> None:
+    """ Define as arestas do vértice de origem para professores
+
+        :param teachers: Lista de professores
+        :param subjects_offered: Lista de disciplinas lecionadas por cada professor """
 
         source = self.mat_adj[0]
         copy = [0]
@@ -151,6 +190,10 @@ class Graph:
             self.addEdge(source[i], sink_teacher, teacher_capacity)
 
     def setSinkEdges(self, initial_vertex: int, subjects_info: list) -> None:
+    """ Define as arestas de disciplinas
+
+        :param initial_vertex: Vértice de início do nível disciplinas
+        :param subjects_info: Lista de disciplinas no formato [[Código da disciplina, Nome da disciplina, número de turmas]] """
 
         subjects_capacities = [c[2] for c in subjects_info]
         sink = self.num_vet - 1
@@ -165,11 +208,12 @@ class Graph:
             self.addEdge(source_subject, sink, subject_capacity)
 
     def setTeachersToSubjectsEdges(self) -> None:
+    """ Define arestas de cada professor para suas respectivas disciplinas """
 
         teachers_indexes = self.teachers_index
         subjects_indexes = self.subjects_index
 
-        flow = [0, 3, 5, 8, 10]
+        flow = [0, 3, 5, 8, 10] #Definição dos valores do fluxo com os custos de acordo com a tabela de preferências, definida no escopo do trabalho
 
         for key, (name, classes_offered, [*subjects]) in teachers_indexes.items():
             total_classes_offered = 0
@@ -186,6 +230,10 @@ class Graph:
                     total_classes_offered += 1
 
     def setInitialData(self, teachers_data: tuple, subjects_data: tuple) -> None:
+    """ Definição dos dados iniciais do grafo
+
+        :param teachers_data: Tupla no formato (professores, disciplinas opfertadas, disciplinas)
+        :param subjects_data: Tupla no formato (dado da disciplina, número de turmas, total de disciplinas) """
 
         (teachers, subjects_offered, subjects) = teachers_data
         (subjects_info, num_of_classes, total_of_subjects) = subjects_data
@@ -200,12 +248,18 @@ class Graph:
         self.setSinkEdges(len(teachers) + 1, subjects_info)
 
         self.setTeachersAndSubjectsIndexes(len(teachers) + 1, subjects_info, teachers_data)
-
+        
+        # Definindo valores do dicionário de professores e disciplinas
         self.setTeachersToSubjectsEdges()
      
         self.setEdgesList()
 
     def bellmanFord(self, s: int, v: int) -> list:
+    """ Algoritmo utilizado para definir o caminho mais curto (caminho ótimo), mesmo com arestas de valor negativo
+
+        :param s: vértice de origem
+        :param v: último vértice (de acordo com o melhor caminho (mais curto))
+        :return: caminho mais curto """
 
         dist = [float("inf") for _ in range(len(self.list_adj))]
         pred = [None for _ in range(len(self.list_adj))]
@@ -241,6 +295,7 @@ class Graph:
         return shortest_path
 
     def getFlowByVertex(self) -> list:
+    """ Pega o fluxo que deveria passar por cada vértice e retorna a lista com o fluxo de cada vértice """
 
         b = [self.num_of_classes]
 
@@ -255,6 +310,7 @@ class Graph:
         return b
 
     def getFlowAndCapacityOfEachEdge(self) -> tuple:
+     """ Pega o fluxo que passa por cada aresta no grafo e retorna a matriz com o fluxo de cada aresta """
 
         flow_of_edge = [[0 for _ in range(len(self.mat_adj))] for _ in range(len(self.mat_adj))]
         capacity_of_edges = [[0 for _ in range(len(self.mat_adj))] for _ in range(len(self.mat_adj))]
@@ -269,6 +325,11 @@ class Graph:
         return flow_of_edge, capacity_of_edges
 
     def successfulShortestPaths(self, s: int, t: int) -> list:
+    """ Algoritmo bem sucedido de caminhos mais curtos
+        
+        :param s: vértice de origem da rede
+        :param t: vértice final da rede
+        :return: Matriz com o fluxo de cada aresta """
 
         F = [[0 for _ in range(len(self.mat_adj))] for _ in range(len(self.mat_adj))]
 
@@ -313,6 +374,9 @@ class Graph:
         return F
 
     def formatData(self, final_matrix: list) -> None:
+    """ Formatação do dado finalpara o usuário
+        
+        :param final_matrix: Matriz com o fluxo de cada aresta """
 
         teachers_keys = self.teachers_index.keys()
         subjects_keys = self.subjects_index.keys()
@@ -355,6 +419,7 @@ class Graph:
             print("\nTodos os professores oferecem pelo menos uma disciplina")
 
     def menu(self) -> None:
+    """Menu exibido em tela para usuário"""
 
         print("\nMENU\nEscolha uma das opções abaixo para iniciar:\n")
         option = None
