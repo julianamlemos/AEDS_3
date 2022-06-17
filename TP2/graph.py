@@ -24,7 +24,8 @@ class Graph:
         self.away_teachers = []
 
     def reset(self, num_vet=0, num_edg=0, mat_adj: list = None, list_adj: list = None) -> None:
-    """:param num_vet: numero de vertices
+    """ Função de redefinição de objeto
+        :param num_vet: numero de vertices
         :param num_edg: numero de arestas
         :param mat_adj: matriz de adjacência
         :param list_adj: lista de adjacência """
