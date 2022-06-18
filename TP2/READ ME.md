@@ -6,13 +6,12 @@ Professor: Dr. George Henrique Godim da Fonseca
 Aluna: [Juliana Mara Lemos](https://github.com/julianamlemos)
 
 ### Descrição
-O trabalho consiste em resolver o problema da alocação de professores às disciplinas do DECSI/UFOP
-através de algoritmos de fluxo em redes. Cada professor leciona uma quantidade específica de disciplinas disciplinas e define a cada semestre as suas preferências por disciplinas dentre as que são ofertadas pelo DECSI.
+O trabalho consiste em resolver o problema da alocação de professores às disciplinas do DECSI/UFOP através de algoritmos de fluxo em redes.
+Cada professor leciona uma quantidade específica de disciplinas disciplinas e define a cada semestre as suas preferências dentre as que são ofertadas pelo DECSI.
 
-Um conjunto de grafos de teste foi disponibilizado para avaliar os trabalho [base](https://github.com/julianamlemos/AEDS_3/TP2/base).
-O programa deve ler esses arquivos de entrada e criar a rede de fluxo correspondente ao
-problema de alocação. A rede de fluxo terá quatro camadas, um com o nó de super oferta,
-outra com nós representando os professores, outra representando as disciplinas e por fim,o nó de super demanda.
+Um conjunto de grafos de teste foi disponibilizado para validar o algoritmo e está na pasta [base](https://github.com/julianamlemos/AEDS_3/TP2/base).
+O programa deve ler esses arquivos de entrada e criar a rede de fluxo correspondente ao problema de alocação.
+A rede de fluxo terá quatro camadas, um com o nó de super oferta, outra com nós representando os professores, outra representando as disciplinas e por fim,o nó de super demanda.
 
 Com relação às preferências, os seguintes
 custos incorrem:
@@ -28,7 +27,7 @@ Abaixo um exemplo da resposta que deve ser retornada como saída após a execuç
 [Vídeo de exemplo da execução e da saída gerada](https://drive.google.com/file/d/1FqlqKlwPnv9pxtV2Y9iXs20hZe84cnoP/view?usp=sharing)
 
 ### Implementação e resultados observados para um conjunto de grafos de teste - Video:
-[Apresentação](link)
+[Apresentação](https://youtu.be/awP-dEtGXfs)
 
 ### Fontes
 - Notas de Aula - CSI105 Algoritmos e Estruturas de Dados III 2021/2
